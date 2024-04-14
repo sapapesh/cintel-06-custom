@@ -41,7 +41,7 @@ with ui.sidebar(title="Palmer Penguins Dashboard", style="background-color: #7FF
 
 with ui.layout_column_wrap(fill=False):
     with ui.value_box(
-        showcase=icon_svg("earlybirds"), style="background-color: #7FFFD4;"
+        showcase=icon_svg("info"), style="background-color: #7FFFD4;"
     ):
         "Number of penguins"
 
