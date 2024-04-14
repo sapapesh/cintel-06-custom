@@ -14,6 +14,7 @@ ui.page_opts(
 )
 
 with ui.sidebar(title="Palmer Penguins Dashboard", style="background-color: #7FFFD4;"):
+    ui.p("Feel free to choose from Mass, Species, or Island to see results", class_="text-center")
     ui.input_slider("mass", "Mass", 2000, 6000, 6000)
     ui.input_checkbox_group(
         "species",
@@ -46,7 +47,7 @@ with ui.layout_column_wrap(fill=False):
 
         @render.text
         def count():
-            return filtered_df().shape[0]
+           return filtered_df().shape[0]
 
     with ui.value_box(
         showcase=icon_svg("ruler-horizontal"), style="background-color: #7FFFD4;"
@@ -98,6 +99,7 @@ with ui.layout_columns():
 @reactive.calc
 def filtered_df():
     filt_df = penguins_df[penguins_df["species"].isin(input.species())]
+    filt_df = filt_df.loc[filt_df["island"].isin(input.island())]
     filt_df = filt_df.loc[filt_df["body_mass_g"] < input.mass()]
     return filt_df
 
@@ -107,4 +109,3 @@ def filtered_df():
 # The overall page options
 # A sidebar
 # The main section with ui cards, value boxes, and space for grids and charts
-
