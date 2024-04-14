@@ -8,6 +8,7 @@ import pandas as pd
 import seaborn as sns
 from faicons import icon_svg
 
+
 ui.page_opts(
     title="Sarah's Penguin Databoard",
     fillable=True,
@@ -15,7 +16,7 @@ ui.page_opts(
 
 with ui.sidebar(title="Palmer Penguins Dashboard", style="background-color: #7FFFD4;"):
     ui.p("Feel free to choose from Mass, Species, or Island to see results", class_="text-center")
-    ui.input_slider("mass", "Mass", 2000, 6000, 6000)
+    ui.input_slider("mass", "Body Mass in Grams", 2000, 7000, 7000)
     ui.input_checkbox_group(
         "species",
         "Species",
@@ -109,3 +110,4 @@ def filtered_df():
 # The overall page options
 # A sidebar
 # The main section with ui cards, value boxes, and space for grids and charts
+
